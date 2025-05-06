@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVCE Library</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Table Styles for Catalog */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>RVCE Library</h1>
+        <p>Enriching Minds, Empowering Futures</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#news">News & Events</a>
+        <a href="#contact">Contact Us</a>
+        {% if username %}
+            <span style="color:white;">Hello, {{ username }}!</span>
+            <a href="{{ url_for('logout') }}" style="color:white;">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to RVCE Library</h2>
+        <p>
+            The RVCE Library is dedicated to fostering a vibrant learning environment by providing access to a vast collection of books, journals, e-resources, and more. With state-of-the-art facilities and digital services, we aim to support academic excellence and research initiatives.
+        </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Established in 1963, the RVCE Library serves as the intellectual hub of the campus. Our mission is to provide resources and services that inspire learning and research, empowering the RVCE community to achieve its goals.
+        </p>
+        <p>
+            <strong>Key Features:</strong>
+            <ul>
+                <li>A collection of over 50,000 books and journals</li>
+                <li>Access to online databases and e-books</li>
+                <li>Digital library services</li>
+                <li>Comfortable reading spaces</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Book Lending</li>
+            <li>Research Assistance</li>
+            <li>Inter-Library Loan</li>
+            <li>Access to E-Journals and Databases</li>
+            <li>Study Room Reservations</li>
+        </ul>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog">
+        <h2>Library Catalog</h2>
+        <p>Explore our collection of books, journals, and digital resources:</p>
+        <table>
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Availability</th>
+            </tr>
+            <tr>
+                <td>Introduction to Machine Learning</td>
+                <td>Alpaydin</td>
+                <td>AI/ML</td>
+                <td>Available</td>
+            </tr>
+            <tr>
+                <td>Python for Data Science</td>
+                <td>Wes McKinney</td>
+                <td>Programming</td>
+                <td>Checked Out</td>
+            </tr>
+            <tr>
+                <td>Advanced Algorithms</td>
+                <td>Dasgupta</td>
+                <td>Computer Science</td>
+                <td>Available</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <h2>News & Events</h2>
+        <ul>
+            <li>New Arrivals: Latest Publications in AI and Robotics</li>
+            <li>Library Orientation Program for First-Year Students</li>
+            <li>Workshop: Accessing Digital Resources Effectively</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or need assistance? Get in touch:</p>
+        <address>
+            <strong>Email:</strong> library@rvce.edu<br>
+            <strong>Phone:</strong> +91-80-1234-5678<br>
+            <strong>Location:</strong> RVCE Library Building, Mysuru Road, Bengaluru - 560059
+        </address>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 RVCE Library. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
