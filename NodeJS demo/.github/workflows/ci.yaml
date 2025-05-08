@@ -1,0 +1,24 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # Use Linux environment
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3   # Checks out the source code
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'        # Specify Node.js version
+
+    - name: Install Dependencies
+      run: npm install            # Installs all npm packages listed in package.json
+
+    - name: Run the App (for testing only)
+      run: npm start &            # Starts the server in the background
